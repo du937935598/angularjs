@@ -1,0 +1,46 @@
+.sites_main{
+    width:100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+.sites{
+    overflow: hidden;
+    border: 1px solid #dcdcdc;
+}
+.sites li{
+    float: left;
+    width: 100%;
+    display: flex;
+}
+.sites li:nth-child(2n){
+    background: #eee;
+}
+.sites li p{
+    flex: 1;
+    padding: 15px;
+    border-right: 1px solid #dcdcdc;
+}
+.sites li p:last-child{
+    border-right:0;
+}
+.bg{
+    background: #99FF00;
+    width: 200px;
+    height: 200px;
+    color: #fff;
+    display: table;
+    cursor: pointer;
+}
+.bg span{
+    font-size: 24px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.dui{
+    background: #FD482C;
+}
+.cuo{
+    background: #ffcc00;
+}

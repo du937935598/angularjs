@@ -1,1 +1,25 @@
-111111index.html
+<div class="sites_main">
+    <h1>这个是SITES</h1>
+    <ul class="sites">
+        <li>
+            <p>编号</p>
+            <p>项目名称</p>
+            <p>项目价格</p>
+            <p>项目类型aaa</p>
+        </li>
+        <li ng-repeat="x in datas | orderBy:'price' ">
+            <p>{{x.id}}</p>
+            <p>{{x.titile}}</p>
+            <p>{{x.price}}</p>
+            <p>{{x.type}}</p>
+        </li>
+    </ul>
+    <h1>这个是ITEMS</h1>
+    <ul class="sites">
+        <li ng-repeat="x in names_other | orderBy:'chengshi'">
+            <p>{{x.lastName}}</p>
+            <p>{{x.url | uppercase }}</p>
+            <p>{{x.chengshi}}</p>
+        </li>
+    </ul>
+</div>

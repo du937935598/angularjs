@@ -20,8 +20,8 @@ myweb.run(['$rootScope',function($rootScope){
                 $(element).click(function(){
                     scope.$apply(function(){
                         $rootScope.nativeId = attrs.href;
-
                     });
+                    window.location.reload();
                 });
             }
         }
@@ -32,7 +32,10 @@ myweb.run(['$rootScope',function($rootScope){
                 $scope.names=response.sites;
                 $scope.names_other=response.itemsa;
             });
-        function changeClass(){
-            $scope.className = true/false;
-        }
+    })
+    .controller('IndexController',function($scope,$http){
+        $http.get('JSON/data.json')
+            .success(function(response){
+                $scope.datas=response.data.list;
+            });
     });
