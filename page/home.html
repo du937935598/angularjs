@@ -1,0 +1,69 @@
+<style>
+    .sites_main{
+        width:100%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+    }
+    .sites{
+        overflow: hidden;
+        border: 1px solid #dcdcdc;
+    }
+    .sites li{
+        float: left;
+        width: 100%;
+        display: flex;
+    }
+    .sites li:nth-child(2n){
+        background: #eee;
+    }
+    .sites li p{
+        flex: 1;
+        padding: 15px;
+        border-right: 1px solid #dcdcdc;
+    }
+    .sites li p:last-child{
+        border-right:0;
+    }
+    .bg{
+        background: #99FF00;
+        width: 200px;
+        height: 200px;
+        color: #fff;
+        display: table;
+        cursor: pointer;
+    }
+    .bg span{
+        font-size: 24px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .dui{
+        background: #FD482C;
+    }
+    .cuo{
+        background: #ffcc00;
+    }
+</style>
+<div class="sites_main">
+    <h1>这个是SITES</h1>
+    <ul class="sites">
+        <li ng-repeat="x in names | orderBy:'Country'">
+            <p>{{x.Name}}</p>
+            <p>{{x.Url |uppercase}}</p>
+            <p>{{x.Country}}</p>
+        </li>
+    </ul>
+    <h1>这个是ITEMS</h1>
+    <ul class="sites">
+        <li ng-repeat="x in names_other | orderBy:'chengshi'">
+            <p>{{x.lastName}}</p>
+            <p>{{x.url | uppercase }}</p>
+            <p>{{x.chengshi}}</p>
+        </li>
+    </ul>
+    <div class="bg" ng-class="{true:'dui',false:'cuo'}[className]">
+        <span>aaaaaaaa</span>
+    </div>
+</div>

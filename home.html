@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/common.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body ng-app="myweb">
+
+<div class="nav_all">
+    <div class="nav_main">
+        <a class="logo" native href="#/home"><h1><img src="image/d_logo.gif"></h1></a>
+        <ul class="nav">
+            <li ng-class="{nav_click:nativeId=='#/home'}"><a native href="#/home">首页</a></li>
+            <li ng-class="{nav_click:nativeId=='#/index'}"><a native href="#/index">投资广场</a></li>
+            <li ng-class="{nav_click:nativeId=='#/guide'}"><a native href="#/guide">新手指引</a></li>
+            <li ng-class="{nav_click:nativeId=='#/safe'}"><a native href="#/safe">安全保障</a></li>
+            <li ng-class="{nav_click:nativeId=='#/aboutus'}"><a native href="#/aboutus">关于我们</a></li>
+            <li ng-class="{nav_click:nativeId=='#/main'}"><a native href="#/main">账户中心</a></li>
+        </ul>
+    </div>
+</div>
+
+<div ng-view></div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/route.js"></script>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/click.js"></script>
+
+</body>
+</html>

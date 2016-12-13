@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8">
+    <script src="js/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-init="firstName='john'">
+    <p>名字 : <input type="text" ng-model="name"></p>
+    <h1 ng-bind="firstName">hello {{name}}</h1>
+    <h1>hello {{name}}</h1>
+    <h1>hello {{10+10}}</h1>
+    <p>姓 : <input type="text" ng-model="firsName"></p>
+    <p>名 : <input type="text" ng-model="lasName"></p>
+    <span>姓名：{{firsName+" "+lasName}}</span>
+</div>
+
+<div ng-controller="myCtry">
+    <p>姓(1) : <input type="text" ng-model="firsName"></p>
+    <p>名(2) : <input type="text" ng-model="lasName"></p>
+    <span>姓名：{{lasName+firsName}}</span>
+</div>
+
+<div ng-controller="jaiqian">
+    <p>数量: <input type="text" ng-model="firsName"></p>
+    <p>价格: <input type="text" ng-model="lasName"></p>
+    <span>{{firsName*lasName}}</span>
+</div>
+
+<div ng-controller="myname">
+    <span>我的姓名：{{name[1]}}</span>
+</div>
+
+<div ng-controller="mynamea">
+    <ul>
+        <li ng-repeat="x in names">
+            <p>{{x.Name}}</p>
+            <p>{{x.Url}}</p>
+        </li>
+    </ul>
+</div>
+
+<!--自定义命名-->
+
+<runoob-directive></runoob-directive>
+<div runoob-directivs></div>
+<div class="runoob-directiva"></div>
+
+<div ng-controller="timeout">
+    <h1>{{timeout}}</h1>
+</div>
+<!--邮箱验证-->
+<form name="mailbox">
+    <input type="email" name="myMailbox" ng-model="text">
+    <span ng-show="mailbox.myMailbox.$error.email">格式不正确</span><!--控制器.name.@error.type-->
+</form>
+
+<div ng-controller="locurl">
+    <h1>{{locaururl}}</h1>
+</div>
+
+<div ng-controller="setimeout">
+    <h1>{{locaururl}}</h1>
+</div>
+
+<script>
+    var myapp=angular.module('myapp',[]);
+    myapp.controller('myCtry',function($scope){
+        $scope.firsName="john";
+        $scope.lasName="doe";
+    });
+    myapp.controller('jaiqian',function($scope){
+        $scope.firsName=2;
+        $scope.lasName=1;
+    });
+    myapp.controller('myname',function($scope){
+        $scope.name=["name1","name2","name3"];
+    });
+    myapp.controller('mynamea',function($scope,$http){
+        $http.get("JSON/sites.php")
+        .success(function (response) {
+            $scope.names = response.sites;
+        });
+    });
+    myapp.directive('runoobDirective',function(){
+        return{
+            template:"<h1>这是用来自定义的</h1>"
+        }
+    });
+    myapp.directive('runoobDirectivs',function(){
+        return{
+            template:"<h1>这是用来自定义的2</h1>"
+        }
+    });
+    myapp.directive('runoobDirectiva',function(){
+        return{
+            restrict:"C",
+            template:"<h1>这是用来自定义的3</h1>"
+        }
+    });
+    myapp.controller('timeout',function($scope,$interval){
+        $scope.timeout=new Date().toLocaleTimeString();
+        $interval(function(){
+            $scope.timeout=new Date().toLocaleTimeString();
+        },1000);
+    });
+    myapp.controller('locurl', function($scope, $location) {
+        $scope.locaururl = $location.absUrl();
+    });
+    myapp.controller('setimeout',function($scope,$timeout){
+        $scope.locaururl='哈喽，成功了！';
+        $timeout(function(){
+            $scope.locaururl='这个是2秒后，再次成功了';
+        },2000);
+    })
+
+</script>
+
+
+</body>
+</html>
