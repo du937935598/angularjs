@@ -1,1 +1,12 @@
-111111guide.html00
+<div class="sites_main">
+    <h1>这个是ITEMS</h1>
+    <ul class="sites">
+        <li class="Hyperlink">
+            <a class="Hyperlink_active" ng-click="showType()">全部分类</a>
+            <a ng-click="showType(name.type)" ng-repeat="name in datas | unique:'type' " ng-bind="name.type"></a>
+        </li>
+        <li ng-repeat="x in datas | filter:{type:filterType} | orderBy:'id'">
+            <p>{{'('+x.id+')'+x.titile+','+x.price+'元,'+x.type}}</p>
+        </li>
+    </ul>
+</div>

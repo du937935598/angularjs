@@ -26,16 +26,17 @@ myweb.run(['$rootScope',function($rootScope){
             }
         }
     }])
-    .controller('HomeController',function($scope,$http){
-        $http.get('JSON/sites.php')
-            .success(function(response){
-                $scope.names=response.sites;
-                $scope.names_other=response.itemsa;
+    .filter('unique', function () {//封装方法为了筛选重复的数据
+        return function (collection, keyname) {
+            var output = [],
+                keys = [];
+            angular.forEach(collection, function (item) {
+                var key = item[keyname];
+                if (keys.indexOf(key) === -1) {
+                    keys.push(key);
+                    output.push(item);
+                }
             });
-    })
-    .controller('IndexController',function($scope,$http){
-        $http.get('JSON/data.json')
-            .success(function(response){
-                $scope.datas=response.data.list;
-            });
+            return output;
+        };
     });

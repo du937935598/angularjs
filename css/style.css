@@ -1,3 +1,4 @@
+/*home*/
 .sites_main{
     width:100%;
     max-width: 1200px;
@@ -13,7 +14,7 @@
     width: 100%;
     display: flex;
 }
-.sites li:nth-child(2n){
+.sites li:nth-child(2n-1){
     background: #eee;
 }
 .sites li p{
@@ -43,4 +44,18 @@
 }
 .cuo{
     background: #ffcc00;
+}
+
+/*guide*/
+.Hyperlink a{
+    flex: 1;
+    color: #000;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    border-right: 1px solid #dcdcdc;
+}
+.Hyperlink .Hyperlink_active{
+    color: #f45b5b;
+    font-weight: bold;
 }
